@@ -1,11 +1,6 @@
-const { Deta } = require("deta")
 
-// add your Project Key
-const deta = Deta(process.env.PROJECT_API_KEY)
-// name your DB
-const db = deta.Base("tt")
-
-function getCurdate() {
+const axios = require("axios")
+function getCurdate() { 
     // get current local time in milliseconds
     var date = new Date();
     var localTime = date.getTime();
@@ -25,10 +20,11 @@ function getCurdate() {
 
 module.exports = async function getlink(req,res){
     
-    db.get('tt').then(data=>{
+    axios.get(process.env.API_ENDPOINT).then(response=>{
+        let data = response.data
         // return;
-        let ar = data['value'];
-
+        let ar = data;
+        console.log(ar)
         for(let obj of ar){
         //    console.log(obj)
            let curHr = getCurdate().getHours();
