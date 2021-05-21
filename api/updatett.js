@@ -19,6 +19,7 @@ app.post('/api/updatett',async (req,res)=>{
         await axios.post(process.env.API_ENDPOINT,{
             tt
         },{
+            
             headers: {
               // Overwrite Axios's automatically set Content-Type
               'Content-Type': 'application/json'
