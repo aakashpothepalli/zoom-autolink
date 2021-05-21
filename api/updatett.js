@@ -19,7 +19,7 @@ app.post('/api/updatett',async (req,res)=>{
         await axios.post(process.env.API_ENDPOINT,{
             tt
         },{
-            
+
             headers: {
               // Overwrite Axios's automatically set Content-Type
               'Content-Type': 'application/json'
@@ -27,6 +27,7 @@ app.post('/api/updatett',async (req,res)=>{
           });
         res.sendStatus(200)
     }
+    
     catch(err){
         console.log(err)
         res.send(err.response)
